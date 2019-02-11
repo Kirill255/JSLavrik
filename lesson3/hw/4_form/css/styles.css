@@ -6,3 +6,7 @@ body {
 .gallery img {
   width: 400px;
 }
+
+.err {
+  outline: 1px solid red;
+}
