@@ -53,22 +53,16 @@ window.onload = function(e) {
     .addClass("some1")
     .addClass("some2");
 
-  $(".items .item")
-    .html("1")
-    .addClass("nz")
-    .on("click", function() {
-      this.style.color = "red";
-    });
+  // скрывается вся группа элементов
+  // $(".items .item").fade(1000);
 
-  console.log($(".items .item").html());
+  // скрывается по одному элементу при клике на него
+  $(".items .item").on("click", function() {
+    $(this).fade(1000);
+  });
 
-  /* Реализовать функцию fade
+  /*
    *  $('.items .item').fade(300);
    *  https://dmitrylavrik.ru/javascript/prostaya-animaciya-na-javascript
    *  */
-
-  var jqitem = $(".items .item");
-
-  // jqitem.fade(300);
-  jqitem.fade(2300);
 };
