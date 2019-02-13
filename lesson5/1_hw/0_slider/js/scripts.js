@@ -28,29 +28,29 @@ function Slider(options) {
   var slider = this;
 
   this.prev = function() {
-    $(slider.images[i]).removeClass("showed");
+    slider.images.eq(i).removeClass("showed");
     i--;
 
     if (i < 0) {
       i = slider.images.length - 1;
     }
 
-    $(slider.images[i]).addClass("showed");
+    slider.images.eq(i).addClass("showed");
   };
 
   this.next = function() {
-    $(slider.images[i]).removeClass("showed");
+    slider.images.eq(i).removeClass("showed");
     i++;
 
     if (i >= slider.images.length) {
       i = 0;
     }
 
-    $(slider.images[i]).addClass("showed");
+    slider.images.eq(i).addClass("showed");
   };
 
-  $(this.btnPrev).on("click", slider.prev);
-  $(this.btnNext).on("click", slider.next);
+  this.btnPrev.on("click", slider.prev);
+  this.btnNext.on("click", slider.next);
 
   if (this.auto) {
     setInterval(slider.next, slider.rate);
