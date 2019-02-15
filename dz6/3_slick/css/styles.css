@@ -1,16 +1,16 @@
 html,
 body {
-  margin: 0;
+  margin: 30px;
   background: #eee;
 }
 
 .faq {
-  padding: 30px;
-  max-width: 600px;
 }
 
 .faq .item {
-  margin: 20px 0;
+  background: #ff0;
+  margin: 5px;
+  /* height: 100%; */
 }
 
 .faq .item .ask {
@@ -20,8 +20,6 @@ body {
 }
 
 .faq .item .answer {
-  background: #ff0;
   overflow: hidden;
-  display: none;
   padding: 0 15px;
 }

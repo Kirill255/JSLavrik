@@ -1,0 +1,130 @@
+html,
+body,
+ul,
+li {
+  margin: 30px;
+  padding: 0;
+}
+
+.timer__item {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+}
+
+.section-1,
+.timer__value,
+h1,
+h2,
+h3 {
+  font-family: Lora;
+}
+
+.section-1__title {
+  font-size: 55px;
+  margin-top: 160px;
+}
+
+@media screen and (max-width: 910px) {
+  .section-1__title {
+    margin-top: 100px;
+  }
+}
+
+.timer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  opacity: 0;
+}
+
+.timer {
+  display: flex;
+  margin-bottom: 150px;
+}
+
+.timer__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+}
+
+.timer__item {
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: rgba(77, 182, 119, 0.95);
+  margin: 0 -8px;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  min-height: 150px;
+  width: 150px;
+}
+
+.timer__item--dark {
+  background: rgba(29, 157, 115, 0.95);
+}
+
+.timer__value {
+  font-size: 55px;
+}
+
+.timer__unit {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 800px) {
+  .section-1__title {
+    font-weight: 400;
+    margin-top: 60px;
+  }
+
+  .timer {
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .timer__item {
+    margin: 0 -5px;
+    min-height: 80px;
+    width: 80px;
+  }
+
+  .timer__value {
+    font-size: 24px;
+  }
+
+  .timer__unit {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .section-1__title {
+    font-size: 45px;
+  }
+
+  .timer {
+    margin-bottom: 55px;
+  }
+}
+
+.timer.timer-showed {
+  opacity: 1;
+}

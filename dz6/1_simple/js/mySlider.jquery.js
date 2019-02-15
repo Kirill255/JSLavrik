@@ -73,7 +73,9 @@
 
 */
 
-(function($) {
+// УДАЛИТЬ ================================
+
+/* (function($) {
   $.fn.duplicate = function(settings) {
     var defaults = {
       d: " ",
@@ -96,6 +98,109 @@
       }
 
       elem.html(out);
+    });
+
+    return this;
+  };
+})(jQuery);
+ */
+
+// УДАЛИТЬ ================================
+
+(function($) {
+  $.fn.mySlider = function(settings) {
+    var defaults = {
+      images: ".gallery-1 img",
+      btnPrev: ".gallery-1 .buttons .prev",
+      btnNext: ".gallery-1 .buttons .next",
+      auto: false,
+      rate: 1000
+    };
+
+    var options = $.extend(defaults, settings);
+
+    this.each(function() {
+      this.images = $(options.images);
+      this.btnPrev = $(options.btnPrev);
+      this.btnNext = $(options.btnNext);
+      this.auto = options.auto;
+      this.rate = options.rate;
+
+      var i = 0;
+
+      var slider = this;
+
+      var isRunPrev = false;
+      var isRunNext = false;
+
+      var sliderWidth = slider.images.eq(0).width();
+
+      function move(direction, sliderWidth) {
+        // проверка на повторные клики, не знаю как лучше написать эту лапшу
+        if (direction > 0) {
+          if (isRunPrev) {
+            return;
+          } else {
+            isRunPrev = true;
+          }
+        } else if (direction < 0) {
+          if (isRunNext) {
+            return;
+          } else {
+            isRunNext = true;
+          }
+        }
+
+        slider.images.eq(i).animate(
+          {
+            opacity: 0,
+            left: sliderWidth
+          },
+          1000
+        );
+
+        i += direction; // i += 1 (i++) или i += -1 (i--)
+
+        if (i < 0) {
+          i = slider.images.length - 1;
+        } else if (i >= slider.images.length) {
+          i = 0;
+        }
+
+        slider.images
+          .eq(i)
+          .css({
+            left: -sliderWidth
+          })
+          .animate(
+            {
+              opacity: 1,
+              left: 0
+            },
+            1000,
+            function() {
+              if (direction > 0) {
+                isRunPrev = false;
+              } else if (direction < 0) {
+                isRunNext = false;
+              }
+            }
+          );
+      }
+
+      this.btnPrev.on("click", function() {
+        move(-1, -sliderWidth);
+      });
+
+      this.btnNext.on("click", function() {
+        move(1, sliderWidth);
+      });
+
+      if (this.auto) {
+        setInterval(function() {
+          move(1, sliderWidth);
+        }, slider.rate);
+      }
     });
 
     return this;
